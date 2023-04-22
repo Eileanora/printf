@@ -17,7 +17,8 @@ typedef struct printer
 	void (*print)(va_list);
 } printer_t;
 
-int _putchar(char c);
-void print_char(va_list);
+int print_char(va_list);
+int print_string(va_list);
+int print_int(va_list);
 
 #endif
