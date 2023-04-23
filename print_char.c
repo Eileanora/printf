@@ -1,10 +1,10 @@
 #include "functions.h"
 
 /**
- * print_any_char - prints any character
- * @c: character to print
- * Return: 1
-*/
+ * print_char - print a character
+ * @args: list of arguments
+ * Return: number of characters printed
+ */
 
 int print_char(va_list args)
 {
