@@ -25,5 +25,9 @@ int _printf(char *format, ...);
 int print_any_char(char c);
 int percent(char *format, int i, va_list args);
 int backslash(char *format, int i);
+int print_unsigned(va_list args);
+int print_octal(va_list args);
+int print_hexa(va_list args);
+int print_hexa_uper(va_list args);
 
 #endif

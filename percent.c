@@ -13,11 +13,15 @@ int percent(char *format, int i, va_list args)
 		{"i", print_int},
 		{"c", print_char},
 		{"s", print_string},
-		{"d", print_int}
+		{"d", print_int},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hexa},
+		{"X", print_hexa_uper}
 	};
 	int j = 0, bytes = 0;
 
-	while (j < 4)
+	while (j < 8)
 	{
 		if (c && c == _printer[j].symbol[0])
 		{
@@ -26,7 +30,7 @@ int percent(char *format, int i, va_list args)
 		}
 		j++;
 	}
-	if (j == 4)
+	if (j == 8)
 	{
 		if (c == '%')
 			bytes = print_any_char(c);
