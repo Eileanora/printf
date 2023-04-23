@@ -11,6 +11,7 @@ int print_string(va_list args)
 
 	if (s == NULL)
 		s = "(null)";
+	fflush(stdout);
 	while (s[i])
 	{
 		write(1, &s[i], 1);
