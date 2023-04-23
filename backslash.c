@@ -10,6 +10,7 @@
 int backslash(char *format, int i)
 {
 	char c = format[i + 1];
+
 	if (c && (c == '\\' || c == '\"' || c == '\'' || c == '%'))
 	{
 		print_any_char(c);

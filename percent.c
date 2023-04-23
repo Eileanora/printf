@@ -1,7 +1,10 @@
 #include "functions.h"
 /**
- * print_per - print percentage sign
- * 
+ * percent - check the character after a percent
+ * @format: format string
+ * @i: index of format string
+ * @args: list of arguments
+ * Return: number of bytes printed
 */
 int percent(char *format, int i, va_list args)
 {
@@ -10,18 +13,23 @@ int percent(char *format, int i, va_list args)
 		{"i", print_int},
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_per}
+		{"d", print_int}
 	};
 	int j = 0, bytes = 0;
-	
+
 	while (j < 4)
 	{
-		if (c && c == _printer[j].symbol)
+		if (c && c == _printer[j].symbol[0])
 		{
 			bytes = _printer[j].print(args);
 			break;
 		}
 		j++;
 	}
+	if (j == 4)
+		if (c == '%')
+			bytes = print_any_char(c);
+		else
+			bytes = print_any_char('%') + print_any_char(c);
 	return (bytes);
 }

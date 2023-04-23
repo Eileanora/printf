@@ -8,21 +8,18 @@
 int _printf(char *format, ...)
 {
 	va_list args;
-	int i, j;
+	int i, bytes = 0;
 
-	const char *seperator = "";
-	printer_t _printer[] = {
-		{"i", print_int},
-		{"c", print_char},
-		{"s", print_string},
-		{NULL, NULL}
-	};
-	/* case 1*/
-	if (format == NULL)
-		return (-1);
-	
 	va_start(args, format);
-	/* iterate untill we find a percentage sign */
+	for (i = 0; format[i]; i++)
+	{
+		if (format[i] == '%')
+			bytes += percent(format, i, args), i++;
+		else if (format[i] == '\\')
+			bytes += backslash(format, i), i++;
+		else
+			bytes += print_any_char(format[i]);
+	}
 	va_end(args);
-	return (0);
+	return (bytes);
 }

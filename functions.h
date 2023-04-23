@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
-#define UNUSED(x) UNUSED_ ## x __attribute__((__unused__))
 /**
  * struct printer - Struct print
  *
