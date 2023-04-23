@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "main.h"
 
 /**
  * _printf - print a string with format specifiers

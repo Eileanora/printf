@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "main.h"
 /**
  * print_string - print a string
  * @args: list of arguments

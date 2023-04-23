@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "main.h"
 
 /**
  * backslash - check the character after a backslash

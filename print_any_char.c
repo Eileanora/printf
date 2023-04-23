@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "main.h"
 
 /**
  * print_any_char - prints any character

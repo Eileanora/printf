@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "main.h"
 /**
  * percent - check the character after a percent
  * @format: format string

@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "main.h"
 /**
  * print_rec - print a number recursively
  * @n: number to print
