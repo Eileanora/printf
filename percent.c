@@ -27,9 +27,11 @@ int percent(char *format, int i, va_list args)
 		j++;
 	}
 	if (j == 4)
+	{
 		if (c == '%')
 			bytes = print_any_char(c);
 		else
 			bytes = print_any_char('%') + print_any_char(c);
+	}
 	return (bytes);
 }
