@@ -10,18 +10,23 @@ int percent(char *format, int i, va_list args)
 		{"i", print_int},
 		{"c", print_char},
 		{"s", print_string},
-		{"%", print_per}
+		{"d", print_int}
 	};
 	int j = 0, bytes = 0;
 	
 	while (j < 4)
 	{
-		if (c && c == _printer[j].symbol)
+		if (c && c == _printer[j].symbol[0])
 		{
 			bytes = _printer[j].print(args);
 			break;
 		}
 		j++;
+	}
+	if (j == 4)
+	{
+		bytes = print_any_char('%');
+		bytes += print_any_char(c);
 	}
 	return (bytes);
 }
