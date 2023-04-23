@@ -22,8 +22,8 @@ int print_int(va_list args)
 	/*nums can be positive and negative*/
 	int n = va_arg(args, int);
 	int i = 0;
-	fflush(stdout);
 
+	fflush(stdout);
 	/* handle negative values */
 	if (n < 0)
 	{
