@@ -13,7 +13,14 @@ int backslash(char *format, int i)
 
 	if (c && (c == '\\' || c == '\"' || c == '\'' || c == '%'))
 	{
-		print_any_char(c);
+		if (c == '\\')
+			print_any_char('\\');
+		if (c == '\"')
+			print_any_char('\"');
+		if (c == '\'')
+			print_any_char('\'');
+		if (c == '%')
+			print_any_char('%');
 		return (1);
 	}
 	/* check if it's \n , \t , and so on and print them */
