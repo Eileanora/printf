@@ -8,6 +8,7 @@ int print_rec(int n)
 {
 	if (n == 0)
 		return (0);
+	fflush(stdout);
 	print_rec(n / 10);
 	write(1, &"0123456789"[n % 10], 1);
 	return (1);
@@ -19,28 +20,36 @@ int print_rec(int n)
 */
 int print_int(va_list args)
 {
-	/*nums can be positive and negative*/
 	int n = va_arg(args, int);
-	int i = 0;
+	int i = 0, j = 0, k = 0;
+	char *s;
 
-	fflush(stdout);
-	/* handle negative values */
 	if (n < 0)
 	{
-		write(1, "-", 1);
-		n = -n;
+		n = n * -1;
 		i++;
 	}
-	/* handle 0 */
 	if (n == 0)
 	{
 		write(1, "0", 1);
-		i++;
+		return (1);
 	}
-	/* handle positive values */
-	if (n > 0)
+	s = malloc(sizeof(char) * 100);
+	if (s == NULL)
+		return (0);
+	while (n > 0)
 	{
-		i += print_rec(n);
+		s[j] = (n % 10) + '0';
+		n = n / 10;
+		j++;
 	}
-	return (i);
+	if (i == 1)
+	{
+		s[j] = '-';
+		j++;
+	}
+	for (k = j - 1; k >= 0; k--)
+		write(1, &s[k], 1);
+	free(s);
+	return (j);
 }
